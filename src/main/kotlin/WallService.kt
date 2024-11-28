@@ -5,7 +5,7 @@ object WallService {
     private var postCount = 0
 
     fun add(post: Post): Post {
-        val newPost = post.copy(id = postCount)
+        val newPost = post.copy(id = postCount + 1)
         posts += newPost
         postCount += 1
         return newPost
@@ -22,5 +22,8 @@ object WallService {
     fun clear() {
         postCount = 0
         posts = emptyArray()
+    }
+    fun getPostCount(): Int {
+        return postCount
     }
 }
