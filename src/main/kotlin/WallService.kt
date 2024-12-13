@@ -1,7 +1,9 @@
 package ru.netology
 
+import Post
+
 object WallService {
-    private var posts = emptyArray<Post>()
+    private var posts = mutableListOf<Post>()
     private var postCount = 0
 
     fun add(post: Post): Post {
@@ -21,7 +23,7 @@ object WallService {
     }
     fun clear() {
         postCount = 0
-        posts = emptyArray()
+        posts = mutableListOf()
     }
     fun getPostCount(): Int {
         return postCount

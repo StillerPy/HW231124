@@ -1,7 +1,5 @@
-import org.junit.Assert.*
 import org.junit.Before
 import org.junit.Test
-import ru.netology.Post
 import ru.netology.WallService
 
 
@@ -20,7 +18,7 @@ class WallServiceTest {
     fun update1() {
         val post = Post()
         WallService.add(post)
-        val newPost = Post(id=1, content="==New content==")
+        val newPost = Post(id = 1, content = "==New content==")
         val result = WallService.update(newPost)
         assert(result)
     }
@@ -28,7 +26,7 @@ class WallServiceTest {
     fun update2() {
         val post = Post()
         WallService.add(post)
-        val newPost = Post(id=2, content="==New content==")
+        val newPost = Post(id = 2, content = "==New content==")
         val result = WallService.update(newPost)
         assert(!result)
     }
