@@ -35,3 +35,6 @@ class FileAttachment(override val id: Int, val title: String): Attachment() {
 class LinkAttachment(override val id: Int, val url: String): Attachment() {
     override val type = "Link"
 }
+
+class Attachments
+
