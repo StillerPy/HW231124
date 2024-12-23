@@ -8,11 +8,12 @@ data class Post(
     val authorName: String = "==Post Author Name==",
     val content: String = "==Post content==",
     val likes: Likes = Likes(),
-    val attachments: Array<Attachment> = emptyArray(),
+    val attachments: Attachments = Attachments(),
     val comments: Comments? = null) {
     fun print() {
         println("Post #$id by $authorName ($authorId)")
-        println(content)
+        println("Content: ")
+        println("\t" + content)
         if (attachments.isNotEmpty()) {
             println("Attachments:")
         }
@@ -34,7 +35,7 @@ data class Post(
         if (authorName != other.authorName) return false
         if (content != other.content) return false
         if (likes != other.likes) return false
-        if (!attachments.contentEquals(other.attachments)) return false
+        //if (!attachments.contentEquals(other.attachments)) return false
         if (comments != other.comments) return false
 
         return true
@@ -46,7 +47,7 @@ data class Post(
         result = 31 * result + authorName.hashCode()
         result = 31 * result + content.hashCode()
         result = 31 * result + likes.hashCode()
-        result = 31 * result + attachments.contentHashCode()
+        result = 31 * result + attachments.hashCode()
         result = 31 * result + (comments?.hashCode() ?: 0)
         return result
     }
